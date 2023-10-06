@@ -1,14 +1,19 @@
 import React from "react";
 import "./App.css";
+import Nav from "./components/Nav";
+import SideBar from "./components/SideBar";
+import LeftMenu from "./components/LeftMenu";
+import Main from "./components/Main";
+import RightMenu from "./components/RightMenu";
 
 export default function App() {
   return (
     <div className="App">
-      <nav className="navigation">Nav</nav>
-      <div className="sidebar">Sidebar</div>
-      <div className="leftmenu">Leftmenu</div>
-      <main className="content">Main</main>
-      <div className="rightmenu">Rightmenu</div>
+      <Nav />
+      <SideBar />
+      <LeftMenu />
+      <Main />
+      <RightMenu />
     </div>
   );
 }
