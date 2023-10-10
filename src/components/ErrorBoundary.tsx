@@ -2,7 +2,7 @@ import React from "react";
 import "./ErrorBoundary.css";
 
 interface ErrorBoundaryProps {
-  children: React.ReactNode;
+  children: React.ReactNode[];
 }
 
 interface ErrorBoundaryState {
@@ -43,7 +43,9 @@ class ErrorBoundary extends React.Component<
         </div>
       );
     }
+
     return this.props.children;
   }
 }
+
 export default ErrorBoundary;

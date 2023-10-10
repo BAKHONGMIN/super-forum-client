@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import configureStore from "./components/store/configureStore";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -14,7 +15,7 @@ root.render(
   <React.StrictMode>
     <Provider store={configureStore()}>
       <BrowserRouter>
-        <App />
+        <ErrorBoundary>{[<App key="App" />]}</ErrorBoundary>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>
