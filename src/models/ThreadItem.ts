@@ -6,7 +6,7 @@ export default class ThreadItem {
     public body: string,
     public userName: string,
     public userId: string,
-    public createOn: Date,
+    public createdOn: Date,
     public threadId: string
   ) {}
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { useWindowDimensions } from "./hooks/useWindowDimensions";
+import { useWindowDimensions } from "../../hooks/useWindowDimensions";
 
 const RightMenu = () => {
   const { width } = useWindowDimensions();
@@ -7,6 +7,6 @@ const RightMenu = () => {
   if (width <= 768) {
     return null;
   }
-  return <div className="rightmenu"></div>;
+  return <div className="rightmenu">Right Menu</div>;
 };
 export default RightMenu;
