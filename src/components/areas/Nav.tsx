@@ -42,6 +42,8 @@ export default function Nav() {
         onRequestClose={onRequestClose}
         // 화면 바깥을 누르면 닫는지 여부
         shouldCloseOnOverlayClick={true}
+        // 에러발생(warning.js:34 Warning: react-modal: App element is not defined.)
+        appElement={document.getElementById("root") || undefined}
       >
         <SideBarMenus />
       </ReactModal>
