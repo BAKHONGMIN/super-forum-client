@@ -73,7 +73,7 @@ const Login: FC<ModalProps> = ({ isOpen, onClickToggle }) => {
         <div className="reg-inputs">
           <div>
             <label>username</label>
-            <input type="text" value={userName} />
+            <input type="text" value={userName} onChange={onChangeUserName} />
           </div>
           <div>
             <label>password</label>
@@ -87,8 +87,26 @@ const Login: FC<ModalProps> = ({ isOpen, onClickToggle }) => {
         </div>
         <div className="form-buttons form-buttons-sm">
           <div className="form-btn-left">
-            <button style={{ marginLeft: "0.5em" }}></button>
+            <button
+              style={{ marginLeft: "0.5em" }}
+              className="action-btn"
+              disabled={isSubmitDisabled}
+              onClick={onClickLogin}
+            >
+              Login
+            </button>
+            <button
+              style={{ marginLeft: "0.5em" }}
+              className="cancel-btn"
+              onClick={onClickCancle}
+            >
+              Close
+            </button>
           </div>
+
+          <span className="form-btn-left">
+            <strong>{resultMsg}</strong>
+          </span>
         </div>
       </form>
     </ReactModal>
