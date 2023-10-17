@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import ReactModal from "react-modal";
 import ModalProps from "../types/ModalProps";
+import "./Logout.css";
 
 const Logout: FC<ModalProps> = ({ isOpen, onClickToggle }) => {
   const onClickLogin = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
