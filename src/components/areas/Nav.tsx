@@ -47,9 +47,9 @@ export default function Nav() {
       >
         <SideBarMenus />
       </ReactModal>
-      <nav className="navigation">
+      <nav>
         {getMobileMenu()}
-        <strong>Super Forum</strong>
+        <strong>SuperForum</strong>
       </nav>
     </>
   );
