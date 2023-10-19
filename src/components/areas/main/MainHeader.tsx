@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import Category from "../../../models/Category";
-import "./Mainheader.css";
+import "./MainHeader.css";
 
 interface MainheaderProps {
   category?: Category;
