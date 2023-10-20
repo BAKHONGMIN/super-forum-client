@@ -8,14 +8,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faRegistered,
   faSignInAlt,
-  faUser
+  faUser,
+  faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import Registration from "../../auth/Registration";
 import Login from "../../auth/Login";
+import Logout from "../../auth/Logout";
 
 const SideBarMenus = () => {
   const [showRegister, setShowRegister] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [showLogout, setShowLogout] = useState(false);
 
   const user = useSelector((state: AppState) => state.user);
   const dispatch = useDispatch();
@@ -28,6 +31,10 @@ const SideBarMenus = () => {
     setShowLogin(!showLogin);
   };
 
+  const onClickToggleLogout = () => {
+    setShowLogout(!showLogout);
+  };
+
   useEffect(() => {
     dispatch({
       type: UserProfileSetType,
@@ -37,6 +44,7 @@ const SideBarMenus = () => {
       }
     });
   }, [dispatch]);
+
   return (
     <>
       <ul>
@@ -58,6 +66,13 @@ const SideBarMenus = () => {
             login
           </span>
           <Login isOpen={showLogin} onClickToggle={onClickToggleLogin}></Login>
+        </li>
+        <li>
+          <FontAwesomeIcon icon={faSignOutAlt} />
+          <span onClick={onClickToggleLogout} className="menu-name">
+            logout
+          </span>
+          <Logout isOpen={showLogout} onClickToggle={onClickToggleLogout} />
         </li>
       </ul>
     </>

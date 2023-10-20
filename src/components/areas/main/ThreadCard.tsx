@@ -1,10 +1,12 @@
 import React, { FC } from "react";
-import "./ThreadCard";
+import "./ThreadCard.css";
 import Thread from "../../../models/Thread";
 import { Link, useNavigate } from "react-router-dom";
-import { faEye, faHeart, faReplyAll } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faReplyAll } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useWindowDimensions } from "../../hooks/useWindowDimensions";
+import ThreadPointsInline from "../../points/ThreadPointsInline";
+import ThreadPointsBar from "../../points/ThreadPointsBar";
 
 interface ThreadCardProps {
   thread: Thread;
@@ -18,25 +20,8 @@ const ThreadCard: FC<ThreadCardProps> = ({ thread }) => {
     navigate("/thread/" + thread.id);
   };
 
-  // 게시물에 대한 공감 개수
-  const getPoints = (thread: Thread) => {
-    if (width < 768) {
-      return (
-        <label style={{ marginRight: "0.75em", marginTop: "0.25EM" }}>
-          {thread.points || 0}
-          <FontAwesomeIcon
-            icon={faHeart}
-            className="points-icon"
-            style={{ marginLeft: "0.2em" }}
-          />
-        </label>
-      );
-    }
-    return null;
-  };
-
   // thread에 대한 답변
-  const getResponse = (thread: Thread) => {
+  const getResponses = (thread: Thread) => {
     if (width <= 768) {
       return (
         <label style={{ marginRight: "0.5em" }}>
@@ -47,30 +32,6 @@ const ThreadCard: FC<ThreadCardProps> = ({ thread }) => {
             style={{ marginLeft: "0.25em", marginTop: "0.25em" }}
           />
         </label>
-      );
-    }
-    return null;
-  };
-
-  // 호감 수
-  const getPointsNonMobile = () => {
-    if (width <= 768) {
-      return (
-        <div className="threadcard-points">
-          <div className="threadcard-points-item">
-            {thread.points || 0}
-            <br />
-            <FontAwesomeIcon icon={faHeart} className="points-icon" />
-          </div>
-          <div
-            className="threadcard-points-item"
-            style={{ marginBottom: "0.75em" }}
-          >
-            {thread && thread.threadItems && thread.threadItems.length}
-            <br />
-            <FontAwesomeIcon icon={faReplyAll} className="points-icon" />
-          </div>
-        </div>
       );
     }
     return null;
@@ -116,13 +77,17 @@ const ThreadCard: FC<ThreadCardProps> = ({ thread }) => {
               {width <= 768 ? (
                 <ThreadPointsInline points={thread?.points || 0} />
               ) : null}
-              {getPoints(thread)}
-              {getResponse(thread)}
+              {getResponses(thread)}
             </span>
           </div>
         </div>
       </div>
-      {getPointsNonMobile()}
+      <ThreadPointsBar
+        points={thread?.points || 0}
+        responseCount={
+          thread && thread.threadItems && thread.threadItems.length
+        }
+      />
     </section>
   );
 };
