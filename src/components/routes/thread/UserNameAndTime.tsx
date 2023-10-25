@@ -1,6 +1,20 @@
 import React from "react";
 import { getTimePastIfLessThanDay } from "../../../common/dates";
 
-export default function UserNameAndTime() {
-  return <div>UserNameAndTime</div>;
+interface UserNameAndTimeProps {
+  userName?: string;
+  lastModifiedOn: Date;
 }
+
+function UserNameAndTime({ userName, lastModifiedOn }: UserNameAndTimeProps) {
+  return (
+    <span>
+      <strong>{userName}</strong>
+      <label style={{ marginLeft: "1em" }}>
+        {lastModifiedOn ? getTimePastIfLessThanDay(lastModifiedOn) : ""}
+      </label>
+    </span>
+  );
+}
+
+export default UserNameAndTime;

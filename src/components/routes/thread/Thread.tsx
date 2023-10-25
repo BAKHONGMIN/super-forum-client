@@ -2,8 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Thread.css";
 import ThreadHeader from "./ThreadHeader";
-import ThreadCategory from "";
+import ThreadCategory from "./ThreadCategory";
 import ThreadModel from "../../../models/Thread";
+import ThreadTitle from "./ThreadTitle";
+import ThreadBody from "./ThreadBody";
+
 import { getThreadById } from "../../../services/DataService";
 import Nav from "../../areas/Nav";
 
@@ -31,7 +34,10 @@ const Thread = () => {
             userName={thread?.userName}
             lastModifiedOn={thread ? thread.lastModifiedOn : new Date()}
             title={thread?.title}
-          ></ThreadHeader>
+          />
+          <ThreadCategory categoryName={thread?.category?.name} />
+          <ThreadTitle title={thread?.title} />
+          <ThreadBody body={thread?.body} />
         </div>
       </div>
     </div>
