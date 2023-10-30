@@ -35,16 +35,6 @@ const SideBarMenus = () => {
     setShowLogout(!showLogout);
   };
 
-  useEffect(() => {
-    dispatch({
-      type: UserProfileSetType,
-      payload: {
-        id: 1,
-        username: "testUser"
-      }
-    });
-  }, [dispatch]);
-
   return (
     <>
       <ul>

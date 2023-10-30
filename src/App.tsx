@@ -5,6 +5,7 @@ import Home from "./components/routes/Home";
 import Thread from "./components/routes/thread/Thread";
 import { useDispatch } from "react-redux";
 import { UserProfileSetType } from "./components/store/user/Reducer";
+import UserProfile from "./components/routes/userProfile/UserProfile";
 
 export default function App() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ export default function App() {
       <Route path="/" element={<Home />}></Route>
       <Route path="/categorythreads/:categoryId" element={<Home />}></Route>
       <Route path="/thread/:id" element={<Thread />} />
+      <Route path="/userprofile/:id" element={<UserProfile />} />
     </Routes>
   );
 }

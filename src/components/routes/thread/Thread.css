@@ -16,7 +16,6 @@
   margin-right: 1em;
   padding-bottom: 1em;
 }
-
 .thread-content-points-container > div {
   height: 100%;
 }
@@ -24,6 +23,13 @@
 .thread-content-post-container {
   grid-column: 1;
   grid-row: 1;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.thread-content-response-container {
+  grid-column: 1;
+  grid-row: 2;
   margin-left: 1em;
   margin-right: 1em;
 }
@@ -43,6 +49,10 @@
 }
 
 .thread-title-container {
+  margin-top: 0.75em;
+}
+
+.thread-body-container {
   margin-top: 1em;
 }
 

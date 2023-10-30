@@ -33,7 +33,7 @@
   border: var(--border);
   border-radius: 5px;
   background-color: white;
-  padding: 1em;
+  padding: 1em 1em 1em 1em;
   z-index: 1000;
 }
 
@@ -60,7 +60,7 @@ input[type="submit"] {
   cursor: pointer;
 }
 
-imput[type="submit"]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 
@@ -91,7 +91,7 @@ imput[type="submit"]:hover {
   grid-auto-flow: column;
 }
 
-.form-button-sm {
+.form-buttons-sm {
   grid-template-columns: 1fr;
 }
 
@@ -115,8 +115,12 @@ imput[type="submit"]:hover {
   display: flex;
   flex-direction: row;
   border: solid var(--panel-border-thickness) var(--border-color);
-  border-radius: 0.7em;
+  border-radius: 0.07em;
   background-color: var(--panel-color);
+
+  white-space: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .icon-lg {

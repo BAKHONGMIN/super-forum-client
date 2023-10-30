@@ -3,7 +3,7 @@ import { getTimePastIfLessThanDay } from "../../../common/dates";
 
 interface UserNameAndTimeProps {
   userName?: string;
-  lastModifiedOn: Date;
+  lastModifiedOn?: Date;
 }
 
 function UserNameAndTime({ userName, lastModifiedOn }: UserNameAndTimeProps) {
